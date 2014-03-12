@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.elkarte.net/site/modification">
+<modification xmlns="http://www.elkarte.net/site/modification" xmlns:elk="http://www.elkarte.net/site/">
+	<id>Spuds:Hideusernames</id>
+	<version>1.0</version>
+	<file name="LANGUAGEDIR/english/Help.english.php">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+$helptxt['hideusernames'] = 'Enter the default user display name that guests will see, e.g. Hidden or Guest, all areas where users names would normally appear will be changed to this to provide increase user anonymity from guests';
+]]></add>
+		</operation>
+	</file>
+
+	<file name="LANGUAGEDIR/english/Addons.english.php">
+		<operation>
+			<search position="end" />
+			<add><![CDATA[
+$txt['hideusernames'] = 'User name for Guests to see<br /><span class="smalltext">e.g. Hidden</span>';
+]]></add>
+		</operation>
+	</file>
+
+</modification>
