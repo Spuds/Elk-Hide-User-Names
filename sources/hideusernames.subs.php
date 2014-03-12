@@ -25,10 +25,7 @@ if (!defined('ELK'))
  */
 function igms_hide_user_names(&$config_vars)
 {
-	if (!is_array($config_vars))
-		$config_vars = array($config_vars);
-	
-	$config_vars = array_merge($config_vars, array('text', 'hideusernames'));
+	$config_vars = array_merge($config_vars, array(array('text', 'hideusernames')));
 }
 
 /**
