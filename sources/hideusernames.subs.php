@@ -25,6 +25,7 @@ if (!defined('ELK'))
  */
 function igms_hide_user_names(&$config_vars)
 {
+	loadLanguage('hideusernames');
 	$config_vars = array_merge($config_vars, array(array('text', 'hideusernames')));
 }
 
@@ -42,6 +43,8 @@ function ob_hide_user_names($buffer)
 
 	if ($user_info['is_guest'] && !empty($modSettings['hideusernames']))
 	{
+		loadLanguage('hideusernames');
+
 		// Another abuse of regex to find anchor tags
 		$reg_ex = '~<a(?:\s+|\s[^>]*\s)href=[""\']' . preg_quote($scripturl, '~') . '\?action=profile;(?:[^"]+;)?u=([^"]*)"[^>]*>(.*?[^<]+[.]*)</a>~';
 		$buffer = preg_replace($reg_ex, $modSettings['hideusernames'], $buffer);
