@@ -15,7 +15,7 @@
  * @version 1.0
  */
 ]]></license>
-	<install for="1.0 - 1.0.99">
+	<install for="1.0 - 1.1.99">
 		<readme parsebbc="true">readme.txt</readme>
 		<license type="inline">This ElkArte addon is released under a MPL V1.1 license, a copy of it with its provisions is included with the package.</license>
 		<require-file name="sources/hideusernames.subs.php" destination="SUBSDIR">Main processing files</require-file>
@@ -26,7 +26,7 @@
 		<redirect url="?action=admin;area=addonsettings" timeout="5000">redirect.txt</redirect>
 	</install>
 
-	<uninstall for="1.0 - 1.0.99">
+	<uninstall for="1.0 - 1.1.99">
 		<readme parsebbc="true">uninstall.txt</readme>
 		<hook reverse="true" hook="integrate_buffer" file="SUBSDIR/hideusernames.subs.php" function="ob_hide_user_names" />
 		<hook reverse="true" hook="integrate_general_mod_settings" file="SUBSDIR/hideusernames.subs.php" function="igms_hide_user_names" />

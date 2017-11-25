@@ -13,7 +13,9 @@
  */
 
 if (!defined('ELK'))
+{
 	die('No access...');
+}
 
 /**
  * igms_hide_user_names()
