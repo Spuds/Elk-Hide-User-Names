@@ -3,19 +3,14 @@
 /**
  * @package "Hide User Names from Guests" Addon for Elkarte
  * @author Spuds
- * @copyright (c) 2011-2014 Spuds
+ * @copyright (c) 2011-2021 Spuds
  * @license This Source Code is subject to the terms of the Mozilla Public License
  * version 1.1 (the "License"). You can obtain a copy of the License at
  * http://mozilla.org/MPL/1.1/.
  *
- * @version 1.0
+ * @version 1.0.1
  *
  */
-
-if (!defined('ELK'))
-{
-	die('No access...');
-}
 
 /**
  * igms_hide_user_names()
@@ -52,11 +47,11 @@ function ob_hide_user_names($buffer)
 		$buffer = preg_replace($reg_ex, $modSettings['hideusernames'], $buffer);
 
 		// Quotes, oh my, leave the link just remove the name ....
-		$reg_ex = '~(<a(?:\s+|\s[^>]*\s)href=[""\']' . preg_quote($scripturl, '~') . '\?topic=(?:[^"]+)?"[^>]*>' . $txt['quote_from'] . ':)(.*?)(' . $txt['on'] . '.*?[^<]+[.]*</a>)~';
+		$reg_ex = '~(<a(?:\s+|\s[^>]*\s)href=["\']' . preg_quote($scripturl, '~') . '\?msg=(?:[^"]+)?"[^>]*>' . $txt['quote_from'] . ':)(.*?)(' . $txt['on'] . '.*?[^<]+[.]*</a>)~';
 		$buffer = preg_replace($reg_ex, "\\1 " . $modSettings['hideusernames'] . " \\3", $buffer);
 
 		// Hummm this too for users who add author= to a quote
-		$reg_ex = '~(<div(?:\s+|\s[^>]*\s)class=[""\']topslice_quote[""\'][^>]*>' . $txt['quote_from'] . ':)(.*?)(</div>)~';
+		$reg_ex = '~(<div(?:\s+|\s[^>]*\s)class=["\']quoteheader(?: bbc_alt_quoteheader)?["\'][^>]*>' . $txt['quote_from'] . ':)(.*?)(</div>)~';
 		$buffer = preg_replace($reg_ex, "\\1 " . $modSettings['hideusernames'] . " \\3", $buffer);
 
 		// The Print page too? the pain the pain
